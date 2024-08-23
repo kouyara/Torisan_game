@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DisplayScore : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class DisplayScore : MonoBehaviour
     {
         Fruits.OnScoreAdded.AddListener(AddScore);
         AddScore(0);
-        Fruits.OnGameOver.AddListener(() => Debug.Log("Game Over"));
+        Fruits.OnGameOver.AddListener(() => SceneManager.LoadScene("Score"));
 
         gameOverPanel.SetActive(false);
         Fruits.OnGameOver.AddListener(() => gameOverPanel.SetActive(true));
